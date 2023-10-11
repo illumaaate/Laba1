@@ -1,0 +1,34 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.Components.Forms
+@using Microsoft.AspNetCore.Components.Web
+
+<EditForm Model="@user1">
+    <p>
+        Фамилия:<br />
+        <InputText @bind-Value="user1.SName" />
+    </p>
+    <p>
+        Имя:<br />
+        <InputText @bind-Value="user1.Name" />
+    </p>
+    <p>
+        Отчество:<br />
+        <InputText @bind-Value="user1.Otch" />
+    </p>
+    <p>
+        Полных лет:<br />
+        <InputNumber @bind-Value="user1.Age" />
+    </p>
+    <p id='root' ></p>
+    <button onclick="document.getElementById('root').innerHTML = '@user2.Resume<br>@user1.Resume'" >Вперёд</button>
+
+
+</EditForm>
+
+@code {
+
+    User user2 = new("Иванов", "Иван", "Иванович", 26);
+
+    User user1 = new("", "", "", null);
+
+}
